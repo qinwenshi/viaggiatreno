@@ -164,6 +164,12 @@ class StationScraper
            .each do |result|
       if result.attributes[StringUtils::CLASS_ATTRIBUTE_NAME].value == StringUtils::RESULT_BLOCK
         train_number = result.search(XPathMatchInfo::STATION_TRAIN_NUMBER).text.split(StringUtils::WHITESPACE)[1]
+        destination = result.search(XPathMatchInfo::STATION_TRAIN_DESTINATION)
+        train_time = result.search(XPathMatchInfo::STATION_TRAIN_TIME)
+        train_planned_platform = result.search(XPathMatchInfo::STATION_TRAIN_PLATFORM_PLANNED)
+        train_actual_platform = result.search(XPathMatchInfo::STATION_TRAIN_PLATFORM_ACTUAL)
+        train_delay = result.search(XPathMatchInfo::STATION_TRAIN_DELAY)
+        
         train = Train.new(train_number, false)
         if processing_outgoing_trains
           @station.outgoing_trains.append(train)

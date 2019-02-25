@@ -12,5 +12,10 @@ class XPathMatchInfo
   TRAIN_DETAILS_ACTUAL_STOP_TIME = './p[2]/strong[1]/text()'.freeze
   STATION_LIST = '//div[@class="corpocentrale" or @class="bloccorisultato"]'.freeze
   STATION_TRAIN_NUMBER = './/h2/text()'.freeze
+  STATION_TRAIN_DESTINATION = './/div[@class="bloccotreno"]/strong[1]'.freeze
+  STATION_TRAIN_TIME = './/div[@class="bloccotreno"]/strong[1]'.freeze
+  STATION_TRAIN_PLATFORM_PLANNED = './/div[@class="bloccotreno"]/text()[3]'.freeze
+  STATION_TRAIN_PLATFORM_ACTUAL = './/div[@class="bloccotreno"]/strong[3]'.freeze
+  STATION_TRAIN_DELAY = './/div[@class="bloccotreno"]/text()[5]'.freeze
   STATION_NAME = '//h1/text()'.freeze
 end
