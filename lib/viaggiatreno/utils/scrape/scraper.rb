@@ -164,7 +164,7 @@ class StationScraper
            .each do |result|
       if result.attributes[StringUtils::CLASS_ATTRIBUTE_NAME].value == StringUtils::RESULT_BLOCK
         train_number = result.search(XPathMatchInfo::STATION_TRAIN_NUMBER).text.split(StringUtils::WHITESPACE)[1]
-        train = Train.new(train_number)
+        train = Train.new(train_number, false)
         if processing_outgoing_trains
           @station.outgoing_trains.append(train)
         else

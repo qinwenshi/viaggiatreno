@@ -5,11 +5,11 @@ class Train
   attr_accessor :train_number, :train_name, :delay, :status, :last_update,
                 :state, :stops
 
-  def initialize(train_number)
+  def initialize(train_number, start_immediately=true)
     @train_number = train_number
     @scraper = TrainScraper.new(self)
     @stops = []
-    update
+    update if start_immediately
   end
 
   def update
